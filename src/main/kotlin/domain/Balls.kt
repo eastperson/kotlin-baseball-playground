@@ -4,6 +4,10 @@ class Balls(ballsNumbers: List<Int>) {
 
     private val balls: List<Ball>
 
+    companion object {
+        const val COLLECTION_MAX_SIZE = 3
+    }
+
     init {
         validate(ballsNumbers)
         val mutableListOf = mutableListOf<Ball>()
@@ -31,7 +35,7 @@ class Balls(ballsNumbers: List<Int>) {
 
     private fun validate(ballsNumbers: List<Int>) {
         val toSet = ballsNumbers.toSet()
-        if (ballsNumbers.size != 3 || toSet.size != 3) {
+        if (ballsNumbers.size != COLLECTION_MAX_SIZE || toSet.size != COLLECTION_MAX_SIZE) {
             throw IllegalArgumentException("정수 숫자가 3개이면서 중복되는 숫자가 있으면 안됩니다")
         }
     }

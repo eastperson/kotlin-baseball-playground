@@ -2,6 +2,10 @@ package domain
 
 class MatchResult(matchStatusList: List<MatchStatus>) {
 
+    companion object {
+        const val NOTHING_NUM = 0
+    }
+
     private val strike: Int
     private val ball: Int
 
@@ -19,9 +23,11 @@ class MatchResult(matchStatusList: List<MatchStatus>) {
         this.ball = ball
     }
 
-    fun isNothing(): Boolean = strike == 0 && ball == 0
+    fun isNothing(): Boolean = strike == NOTHING_NUM && ball == NOTHING_NUM
 
     fun strike(): Int = this.strike
 
     fun ball(): Int = this.ball
+
+    fun success(): Boolean = this.strike == 3
 }

@@ -4,14 +4,19 @@ class BallNumber(ballNumber: Int) {
 
     private val number: Int
 
+    companion object {
+        const val MAX_NUMBER = 9
+        const val MIN_NUMBER = 1
+    }
+
     init {
         validate(ballNumber)
         this.number = ballNumber
     }
 
     private fun validate(ballNumber: Int) {
-        if (9 < ballNumber || ballNumber < 1) {
-            throw IllegalArgumentException("공의 숫자는 0보다 크고 10보다 작은 정수여야 합니다.")
+        if (MAX_NUMBER < ballNumber || ballNumber < MIN_NUMBER) {
+            throw IllegalArgumentException("공의 숫자는 ${MIN_NUMBER - 1}보다 크고 ${MAX_NUMBER + 1}보다 작은 정수여야 합니다.")
         }
     }
 

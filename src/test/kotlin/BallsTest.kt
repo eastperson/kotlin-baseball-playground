@@ -71,6 +71,6 @@ class BallsTest {
     fun `Balls 간 비교 3스트라이크`() {
         val targetBalls = Balls(listOf(1, 2, 3))
         val matchResult = balls.match(targetBalls)
-        assertThat(matchResult.strike()).isEqualTo(3)
+        assertThat(matchResult.success()).isTrue()
     }
 }
