@@ -11,6 +11,13 @@ class Ball(position: Int, ballNumber: Int) {
     }
 
     fun match(targetBall: Ball): MatchStatus {
+        if (isEqualBallNumber(targetBall)) {
+            return MatchStatus.BALL
+        }
         return MatchStatus.NOTHING
+    }
+
+    private fun isEqualBallNumber(targetBall: Ball): Boolean {
+        return this.ballNumber == targetBall.ballNumber
     }
 }
