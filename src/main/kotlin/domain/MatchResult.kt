@@ -4,6 +4,7 @@ class MatchResult(matchStatusList: List<MatchStatus>) {
 
     companion object {
         const val NOTHING_NUM = 0
+        const val SUCCESS_STRIKE_NUM = 3
     }
 
     private val strike: Int
@@ -29,5 +30,5 @@ class MatchResult(matchStatusList: List<MatchStatus>) {
 
     fun ball(): Int = this.ball
 
-    fun success(): Boolean = this.strike == 3
+    fun success(): Boolean = this.strike == SUCCESS_STRIKE_NUM
 }
