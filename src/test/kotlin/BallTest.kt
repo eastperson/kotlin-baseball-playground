@@ -26,4 +26,11 @@ class BallTest {
         val targetBall = Ball(position = 2, ballNumber = 3)
         assertThat(ball.match(targetBall)).isEqualTo(MatchStatus.BALL)
     }
+
+    @Test
+    fun `볼의 위치와 숫자가 같으면 strike 이다`() {
+        val ball = Ball(position = 1, ballNumber = 3)
+        val targetBall = Ball(position = 1, ballNumber = 3)
+        assertThat(ball.match(targetBall)).isEqualTo(MatchStatus.STRIKE)
+    }
 }
