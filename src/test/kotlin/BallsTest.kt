@@ -3,6 +3,7 @@ import domain.Balls
 import domain.MatchStatus
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class BallsTest {
 
@@ -28,5 +29,21 @@ class BallsTest {
         val userBall = Ball(1, 1)
         val matchStatus = balls.match(userBall)
         assertThat(matchStatus).isEqualTo(MatchStatus.STRIKE)
+    }
+
+    @Test
+    fun `Balls 생성시 중복되는 숫자가 있는 경우 예외 발생`() {
+        val list = listOf(1, 2, 2)
+        assertThrows<IllegalArgumentException> {
+            Balls(list)
+        }
+    }
+
+    @Test
+    fun `Balls 생성시 정수 리스트가 3개가 아닌 경우`() {
+        val list = listOf(1, 2, 3, 4)
+        assertThrows<IllegalArgumentException> {
+            Balls(list)
+        }
     }
 }
