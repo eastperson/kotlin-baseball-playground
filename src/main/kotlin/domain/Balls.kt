@@ -11,6 +11,12 @@ class Balls(ballsNumbers: List<Int>) {
     }
 
     fun match(targetBall: Ball): MatchStatus {
+        this.balls.forEach {
+            val resultStatus = it.match(targetBall)
+            if (resultStatus == MatchStatus.BALL) {
+                return resultStatus
+            }
+        }
         return MatchStatus.NOTHING
     }
 }

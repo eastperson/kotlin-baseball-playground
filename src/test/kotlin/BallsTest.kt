@@ -13,4 +13,12 @@ class BallsTest {
         val matchStatus = balls.match(userBall)
         assertThat(matchStatus).isEqualTo(MatchStatus.NOTHING)
     }
+
+    @Test
+    fun `공 볼 테스트`() {
+        val balls = Balls(listOf(1, 2, 3))
+        val userBall = Ball(1, 3)
+        val matchStatus = balls.match(userBall)
+        assertThat(matchStatus).isEqualTo(MatchStatus.BALL)
+    }
 }
