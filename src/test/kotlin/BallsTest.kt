@@ -46,4 +46,12 @@ class BallsTest {
             Balls(list)
         }
     }
+
+    @Test
+    fun `Balls 간 비교 낫싱`() {
+        val balls = Balls(listOf(1, 2, 3))
+        val targetBalls = Balls(listOf(4, 5, 6))
+        val matchResult = balls.match(targetBalls)
+        assertThat(matchResult.isNothing()).isTrue()
+    }
 }
