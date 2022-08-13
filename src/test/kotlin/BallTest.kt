@@ -12,4 +12,11 @@ class BallTest {
             Ball(position = 1, ballNumber = 10)
         }
     }
+
+    @Test
+    fun `볼의 위치는 다르지만 숫자가 같으면 ball 이다`() {
+        val ball = Ball(position = 1, ballNumber = 3)
+        val targetBall = Ball(position = 2, ballNumber = 3)
+        assertThat(ball.match(targetBall)).isEqualTo(MatchStatus.BALL)
+    }
 }

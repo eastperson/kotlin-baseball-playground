@@ -9,4 +9,8 @@ class Ball(position: Int, ballNumber: Int) {
         this.ballNumber = BallNumber(ballNumber)
         this.position = position
     }
+
+    fun match(targetBall: Ball): MatchStatus {
+        return MatchStatus.NOTHING
+    }
 }
