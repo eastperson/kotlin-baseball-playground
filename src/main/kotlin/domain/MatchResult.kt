@@ -19,7 +19,9 @@ class MatchResult(matchStatusList: List<MatchStatus>) {
         this.ball = ball
     }
 
-    fun isNothing(): Boolean {
-        return strike == 0 && ball == 0
-    }
+    fun isNothing(): Boolean = strike == 0 && ball == 0
+
+    fun strike(): Int = this.strike
+
+    fun ball(): Int = this.ball
 }

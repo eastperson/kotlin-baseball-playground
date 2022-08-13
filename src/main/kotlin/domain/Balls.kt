@@ -11,6 +11,14 @@ class Balls(ballsNumbers: List<Int>) {
         this.balls = mutableListOf.toList()
     }
 
+    fun match(targetBalls: Balls): MatchResult {
+        val matchStatusList = mutableListOf<MatchStatus>()
+        targetBalls.balls.forEach {
+            matchStatusList.add(this.match(it))
+        }
+        return MatchResult(matchStatusList.toList())
+    }
+
     fun match(targetBall: Ball): MatchStatus {
         this.balls.forEach {
             val resultStatus = it.match(targetBall)
